@@ -47,3 +47,37 @@
 @media(max-width:580px){.site-header{height:90px;gap:10px}.brand-mark{display:none}.brand strong{font-size:11px;letter-spacing:.4px}.brand small{font-size:11px;letter-spacing:.7px}.site-header .quiet-button{padding:9px}.site-header .quiet-button>span,.site-header .quiet-button>svg:last-child{display:none}.monitor-led{letter-spacing:.2px;font-size:9px}.monitor-top{font-size:11px}}
 
 @media(max-width:1050px){.station-clock{display:none}}
+
+/* Small desktop window: preserve at least 200px of official player height. */
+.monitor-top-actions .monitor-led{display:flex;align-items:center;gap:7px}
+.app.compact{height:100dvh;min-height:266px;padding:4px;max-width:800px}
+.compact .workspace,.compact .main-column{height:100%;min-height:0;padding:0}
+.compact .monitor{height:100%;display:flex;flex-direction:column;padding:3px;border-radius:6px}
+.compact .monitor-top{flex:0 0 22px;height:22px;min-width:0;padding:0 3px 2px;font-size:10px;letter-spacing:.2px}
+.compact .monitor-top>div{gap:4px;white-space:nowrap}
+.compact .monitor-top>div:first-child>svg{width:12px;height:12px}
+.compact .monitor-led{border:0;padding:0;font-size:9px;letter-spacing:0}
+.compact .monitor-led .status-dot{width:4px;height:4px}
+.compact .monitor-top .compact-expand{width:24px;height:20px;min-width:24px;min-height:20px;margin-left:3px}
+.compact .screen{flex:1 1 0;min-height:200px;aspect-ratio:auto;border:0;border-radius:2px}
+.compact .camera-controls{flex:0 0 34px;min-height:34px;flex-wrap:nowrap;gap:3px;row-gap:0;padding:2px 0}
+.compact .channel-stepper{gap:0}
+.compact .channel-stepper>span{gap:3px;font-size:10px}
+.compact .channel-stepper>span>span{font-size:9px}
+.compact .camera-controls .icon-button{width:26px;height:28px;min-width:26px;min-height:28px}
+.compact .camera-controls .icon-button svg{width:16px;height:16px}
+.compact .camera-select{display:flex;order:0;flex:1 1 0;min-width:0;width:0;max-width:none;height:28px;border:0;padding:3px;font-size:11px;gap:2px}
+.compact .camera-select [data-slot=select-value]{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.compact .camera-select>svg{width:12px;height:12px}
+.compact .player-actions{flex-shrink:0;gap:1px;margin-left:0}
+.compact .player-actions>.icon-button:nth-child(2),.compact .player-actions>.icon-button:nth-child(3){display:none}
+.compact .identify-button{width:28px;height:28px;margin:0;padding:4px;gap:0}
+.compact .identify-button>span,.compact .monitor-bottom,.compact .viewfinder-bottom,.compact .viewfinder-top>span:last-child,.compact .screen-caption>span,.compact .screen-caption>p{display:none}
+.compact .viewfinder{inset:10px}
+.compact .viewfinder-top{left:7px;right:7px;top:7px;font-size:10px;letter-spacing:0}
+.compact .corner{width:18px;height:18px}
+.compact .screen-caption{left:18px;right:18px;bottom:16px}
+.compact .screen-caption strong{font-size:14px;letter-spacing:.5px}
+.compact .connect-button{top:45%;font-size:12px;padding:9px 13px;gap:7px}
+.compact .notice{position:fixed;left:8px;right:8px;bottom:43px;z-index:10;margin:0;padding:8px;background:#1b281bf2;border:1px solid #546244;border-radius:4px;font-size:12px}
+@media(max-width:320px){.compact .channel-stepper>span>span{display:none}}
