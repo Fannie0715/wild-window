@@ -23,6 +23,6 @@ try {
     }
     if (!completed) throw new Error('下载中断。重新运行本脚本即可继续下载。');
   }
-  console.log('\n本地识图已就绪！打开野外值班，点击“识别动物”。\n本窗口可关闭；启动网页时会自动连接或启动本地模型。');
+  console.log('\n本地识图已就绪！打开 Global Wildlife Monitor，点击“识别动物”。\n本窗口可关闭；启动网页时会自动连接或启动本地模型。');
 } catch (error) { console.error('\n' + error.message); process.exitCode = 1; }
 finally { runtime?.stop(); }

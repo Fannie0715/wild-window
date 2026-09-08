@@ -50,7 +50,7 @@ async function start() {
   server.on('error', error => {if(error.code==='EADDRINUSE' && port<requested+10 && port<65535){port++;server.listen(port,'127.0.0.1');}else{console.error(error.message);void runtime.stop().finally(()=>{process.exitCode=1;});}});
   server.on('listening',()=>{
     const url=`http://127.0.0.1:${port}/`;
-    console.log(`\n野外值班已启动：${url}\n关闭终端或按 Ctrl+C 退出。\n`);
+    console.log(`\nGlobal Wildlife Monitor 已启动：${url}\n关闭终端或按 Ctrl+C 退出。\n`);
     if(!process.argv.includes('--no-open')){const [command,args]=process.platform==='darwin'?['open',[url]]:process.platform==='win32'?['cmd',['/c','start','',url]]:['xdg-open',[url]];const child=spawn(command,args,{stdio:'ignore'});child.on('error',()=>{});child.unref();}
   });
   server.listen(port,'127.0.0.1');
