@@ -4,7 +4,7 @@ const { resolve } = require('node:path');
 const { pathToFileURL } = require('node:url');
 const { isAppURL, assertSender, createCaptureHandler } = require('./capture-policy.cjs');
 
-app.setName('野外值班');
+app.setName('Global Wildlife Monitor');
 const project = resolve(__dirname, '..');
 const windows = new Set();
 const miniWindows = new Set();
@@ -15,7 +15,7 @@ const windowFor = contents => [...windows].find(win => !win.isDestroyed() && win
 
 function createWindow({ mini = false, camera = 'panda' } = {}) {
   const win = new BrowserWindow({
-    title: '野外值班 · Wild Window', width: mini ? 560 : 1180, height: mini ? 620 : 860,
+    title: 'Global Wildlife Monitor · 全球动物监控', width: mini ? 560 : 1180, height: mini ? 620 : 860,
     minWidth: 520, minHeight: 430, backgroundColor: '#10150f', autoHideMenuBar: true,
     alwaysOnTop: mini,
     webPreferences: { preload: resolve(__dirname, 'preload.cjs'), sandbox: true, contextIsolation: true,
@@ -36,7 +36,7 @@ function createWindow({ mini = false, camera = 'panda' } = {}) {
 async function start() {
   await app.whenReady();
   Menu.setApplicationMenu(Menu.buildFromTemplate([
-    ...(process.platform === 'darwin' ? [{label:'野外值班',submenu:[{role:'about'},{type:'separator'},{role:'hide'},{role:'unhide'},{type:'separator'},{role:'quit'}]}] : []),
+    ...(process.platform === 'darwin' ? [{label:'Global Wildlife Monitor',submenu:[{role:'about'},{type:'separator'},{role:'hide'},{role:'unhide'},{type:'separator'},{role:'quit'}]}] : []),
     {label:'编辑',submenu:[{role:'undo'},{role:'redo'},{type:'separator'},{role:'cut'},{role:'copy'},{role:'paste'},{role:'selectAll'}]},
     {label:'视图',submenu:[{role:'reload'},{role:'resetZoom'},{role:'zoomIn'},{role:'zoomOut'},{role:'togglefullscreen'}]},
   ]));
@@ -75,7 +75,7 @@ async function start() {
   });
   createWindow();
   app.on('activate', () => { if (!windows.size) createWindow(); });
-  console.log('野外值班桌面窗口已启动；直接截图已启用。');
+  console.log('Global Wildlife Monitor 桌面窗口已启动；直接截图已启用。');
 }
 app.on('window-all-closed', () => app.quit());
 app.on('before-quit', event => {
