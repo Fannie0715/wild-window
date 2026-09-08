@@ -1,4 +1,4 @@
-# 野外值班 · Wild Window
+# Global Wildlife Monitor · 全球动物监控
 
 给工位开一扇野外的窗。一个复古监控器风格的动物直播小窗口：切换机位、看远方的动物，遇到好奇的邻居就用本机 Qwen3-VL 识别。
 
@@ -10,13 +10,13 @@
 
 ### 完整监控台
 
-![野外值班监控台：荧光绿状态栏、动物画面和机位列表](docs/images/monitor-overview.jpg)
+![Global Wildlife Monitor 监控台：荧光绿状态栏、动物画面和机位列表](docs/images/monitor-overview.jpg)
 
 监控台实际界面：查看机位列表、切换地点，并打开动物识别入口。
 
 ### 上班小窗
 
-![野外值班上班小窗：紧凑播放器、左右切台与动物识别按钮](docs/images/mini-window.jpg)
+![Global Wildlife Monitor 上班小窗：紧凑播放器、左右切台与动物识别按钮](docs/images/mini-window.jpg)
 
 点击「上班小窗」即可打开紧凑窗口，保留左右切台、机位选择和识别按钮；桌面版还支持置顶，方便边工作边看动物。
 
@@ -26,7 +26,7 @@
 
 1. 安装 [Node.js](https://nodejs.org/) 22.13 或更新版本（推荐 24 LTS）。
 2. 在 [Releases](https://github.com/Fannie0715/wild-window/releases) 下载 `wild-window-desktop.zip`，解压到自己的文件夹。
-3. macOS 双击 `启动野外值班.command`；Windows 双击 `启动野外值班.cmd`。也可以在解压目录执行 `node scripts/launch-desktop.mjs`。
+3. macOS 双击 `Start Global Wildlife Monitor.command`；Windows 双击 `Start Global Wildlife Monitor.cmd`。也可以在解压目录执行 `node scripts/launch-desktop.mjs`。
 4. 首次启动会下载官方 Electron 桌面运行环境（约 125–150 MB），随后打开独立桌面窗口。关闭所有桌面窗口即可停止。
 
 发布包已包含构建好的网页。桌面运行环境首次自动下载至 `.runtime/desktop`，以后可直接启动。桌面窗口的网页服务只监听本机 `127.0.0.1`，自动选择空闲端口。
@@ -69,7 +69,7 @@ npm run desktop
 
 1. Apple Silicon Mac（macOS 14+）：双击「启用本地识图.command」，会下载官方 Ollama CLI（约 152 MB）和模型（约 3.3 GB）。程序和权重保存在 `.runtime/`，不提交到 GitHub，不打进发布 ZIP。
 2. Windows、Intel Mac、Linux：先从 [Ollama 官方网站](https://ollama.com/download) 安装并打开 Ollama，然后双击「启用本地识图.cmd」或运行 `node scripts/setup-ai.mjs`。也可执行 `ollama pull qwen3-vl:4b-instruct`。
-3. 打开野外值班，点击「识别动物」。如果网页已打开，点击「重新检测」；本地网页会按需启动已安装的 Ollama。
+3. 打开 Global Wildlife Monitor，点击「识别动物」。如果网页已打开，点击「重新检测」；本地网页会按需启动已安装的 Ollama。
 4. 桌面窗口默认接通直播。看到动物后，点击「识别动物」，程序截取自己的播放器区域，自动交给 Qwen3-VL，直接显示结果。点击「再看一帧」可更新截图。第一次加载模型可能较慢。
 
 后续启动网页会自动连接或启动本地模型。脚本不会自动下载模型，首次下载由「启用本地识图」明确触发。安装过的官方 Ollama 使用原有模型目录；项目附带的 CLI 使用 `.runtime/models`。需要足够的磁盘与运行内存，模型下载大小不等于内存占用；16 GB Apple Silicon Mac 为当前验证环境。尚未实测 Windows、Intel Mac 和 Linux 的推理速度。

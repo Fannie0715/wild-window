@@ -1,6 +1,6 @@
 # Third-party content
 
-Wild Window's original application code is MIT-licensed. Third-party software retains its own license; see each dependency's package and license files.
+Global Wildlife Monitor's original application code is MIT-licensed. Third-party software retains its own license; see each dependency's package and license files.
 
 Live streams and linked preview images belong to their source publishers and are **not** covered by this repository's MIT license. This repository does not redistribute downloaded streams or video recordings. Documentation screenshots show the application with source-attributed wildlife imagery; those embedded images retain the original publishers’ rights. It embeds official public YouTube players and links publisher-hosted reference images with visible attribution.
 
