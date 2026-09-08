@@ -35,5 +35,5 @@ jobs:
           if gh release view "$GITHUB_REF_NAME" > /dev/null 2>&1; then
             gh release upload "$GITHUB_REF_NAME" release/wild-window-desktop.zip release/wild-window-xiaohongshu.zip --clobber
           else
-            gh release create "$GITHUB_REF_NAME" release/wild-window-desktop.zip release/wild-window-xiaohongshu.zip --title "野外值班 $GITHUB_REF_NAME" --notes "下载 ZIP 并解压，安装 Node.js 22.13 或更新版本后，双击对应系统启动文件。"
+            gh release create "$GITHUB_REF_NAME" release/wild-window-desktop.zip release/wild-window-xiaohongshu.zip --title "Global Wildlife Monitor $GITHUB_REF_NAME" --notes "下载 ZIP 并解压，安装 Node.js 22.13 或更新版本后，双击对应系统启动文件。"
           fi
