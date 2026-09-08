@@ -170,7 +170,7 @@ const AnimalObserver = forwardRef<AnimalObserverHandle, Props>(function AnimalOb
         if (!track?.cropTo) throw new Error(DIRECT_CAPTURE_HELP);
         // A failed crop must never fall back to sending an entire screen or another tab.
         try { await track.cropTo(await region.fromElement(captureTarget.current)); }
-        catch { throw new Error('请选择“此标签页 / 野外值班”。未能定位直播区域，尚未截取或识别。'); }
+        catch { throw new Error('请选择“此标签页 / Global Wildlife Monitor”。未能定位直播区域，尚未截取或识别。'); }
         if (version !== captureVersion.current) return;
         captureStream.current = acquired;
         const stream = acquired;
@@ -239,7 +239,7 @@ const AnimalObserver = forwardRef<AnimalObserverHandle, Props>(function AnimalOb
         {!ready && modelState !== 'checking' && <div className="model-setup">{modelState === 'local_only' ? <><p>请在自己电脑运行安装版，图片由本机处理。</p><a href="http://127.0.0.1:4191/" target="_blank" rel="noopener noreferrer">打开本地网页 <ArrowUpRight size={14}/></a></> : <><p>双击项目里的「启用本地识图」，首次会下载约 3.3GB 的模型。窗口提示就绪后，点击重新检测。</p><p>已有 Ollama：<code>ollama pull qwen3-vl:4b-instruct</code></p></>}</div>}
         <div className="capture-tools"><button onClick={capture} disabled={busy || !canCapture || !enabled}><Camera size={17}/>{captureBusy ? '正在准备…' : picture ? '再看一帧' : '截取直播并识别'}</button><button onClick={() => input.current?.click()} disabled={busy}><ImagePlus size={17}/>{picture ? '更换图片' : '上传图片识别'}</button><input ref={input} type="file" accept="image/png,image/jpeg,image/webp" onChange={e => void loadFile(e.target.files?.[0])} className="sr-only" aria-label="选择动物截图"/></div>
         {status && <p className="observer-status" role="status">{status}</p>}
-        <p className="capture-tip">{nativeCapture ? '桌面窗口直接截取当前直播区域，无需共享屏幕。图片仅由本机 Qwen 处理。' : canCapture ? sharing ? '已连接直播区域，再点一次就能截取新画面。共享会持续到你点击“停止共享”。' : '首次请选择“此标签页 / 野外值班”并允许共享。之后点击“识别动物”就会自动截取直播区域，无需上传。' : DIRECT_CAPTURE_HELP}</p>
+        <p className="capture-tip">{nativeCapture ? '桌面窗口直接截取当前直播区域，无需共享屏幕。图片仅由本机 Qwen 处理。' : canCapture ? sharing ? '已连接直播区域，再点一次就能截取新画面。共享会持续到你点击“停止共享”。' : '首次请选择“此标签页 / Global Wildlife Monitor”并允许共享。之后点击“识别动物”就会自动截取直播区域，无需上传。' : DIRECT_CAPTURE_HELP}</p>
         {!canCapture && <button className="copy-page-address" onClick={copyPageAddress}><Copy size={14}/> 复制本页地址到 Chrome</button>}
         {sharing && <button className="stop-sharing" onClick={stopSharing}><Square size={13}/> 停止共享画面</button>}
         {picture ? <div className="capture-preview"><img src={picture} alt="正在识别的动物截图"/><div><span><Check size={13}/> 当前识别画面</span><button onClick={() => { captureVersion.current++; cancelRecognition(); setCaptureBusy(false); setPicture(''); setResult(null); setStatus(''); }} aria-label="移除截图"><X size={15}/></button></div></div> : <button className="upload-zone" onClick={() => input.current?.click()} disabled={busy}><ScanLine size={32}/><strong>看见它，认识它</strong><span>也可直接粘贴截图 · ⌘V / Ctrl+V</span></button>}

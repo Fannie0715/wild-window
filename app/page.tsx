@@ -42,7 +42,7 @@ export default function Home() {
   const localTime = clock ? new Intl.DateTimeFormat('en-GB', {timeZone:camera.timezone, hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(clock) : '--:--:--';
   return <main className={compact ? 'app compact' : 'app'}>
     <header className="site-header">
-      <a className="brand" href="./" aria-label="野外值班首页"><span className="brand-mark"><PawPrint size={27}/></span><span><strong>WILDLIFE MONITORING STATION</strong><small>野外值班 <span>/</span> 野生动物监控站</small></span></a>
+      <a className="brand" href="./" aria-label="Global Wildlife Monitor 首页"><span className="brand-mark"><PawPrint size={27}/></span><span><strong>GLOBAL WILDLIFE MONITOR</strong><small>全球动物监控 <span>/</span> LIVE CAMERA NETWORK</small></span></a>
       <div className="station-telemetry"><span className={'signal-meter ' + (playing ? 'connected' : '')} aria-hidden="true"><i/><i/><i/><i/></span><span className={'station-status ' + (playing ? 'connected' : '')}><span className="status-dot"/>{playing ? '已接通' : '待机中'}</span><time className="station-clock" dateTime={clock?.toISOString()}>{stationTime}</time></div>
       <button className="quiet-button" onClick={openMini}><PictureInPicture2 size={17}/><span>上班小窗</span><ArrowUpRight size={14}/></button>
     </header>
@@ -50,7 +50,7 @@ export default function Home() {
       <section className="main-column">
         <div className="section-heading"><div><span className="eyebrow">FIELD OBSERVATION / 现场观察</span><h1>给工位，开一扇野外的窗。</h1></div><span className="station-count">{String(cameras.length).padStart(2,'0')} <span>个机位 / 随时出走</span></span></div>
         <div className="monitor" ref={monitor}>
-          <div className="monitor-top"><div><Radio size={15}/><span>WILD WINDOW</span><span className="muted"> / MONITOR {String(index+1).padStart(2,'0')}</span></div><div className="monitor-led"><span className="status-dot"/> {playing ? 'OFFICIAL PLAYER' : 'STANDBY'}</div></div>
+          <div className="monitor-top"><div><Radio size={15}/><span>GLOBAL WILDLIFE</span><span className="muted"> / MONITOR {String(index+1).padStart(2,'0')}</span></div><div className="monitor-led"><span className="status-dot"/> {playing ? 'OFFICIAL PLAYER' : 'STANDBY'}</div></div>
           <div ref={captureTarget} data-live-player data-camera={camera.id} className={'screen ' + (playing ? 'is-playing' : '')}>
             {camera.image && !playing && <img className="scene" src={camera.image} alt={`${camera.name}机位资料图，非实时画面`} onError={e => { e.currentTarget.style.opacity = '0'; }}/>}
             {playing && camera.embed && <iframe key={`${camera.id}-${connection}`} className="stream" title={`${camera.name}官方直播播放器`} src={`${camera.embed}?autoplay=1&mute=1&playsinline=1&rel=0`} allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen/>}
