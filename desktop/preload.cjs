@@ -6,6 +6,7 @@ if (process.isMainFrame) {
   contextBridge.exposeInMainWorld('wildWindowDesktop', Object.freeze({
     captureLivePlayer: () => ipcRenderer.invoke('wild-window:capture'),
     openMini: cameraId => ipcRenderer.invoke('wild-window:mini', cameraId),
+    setCompact: compact => ipcRenderer.invoke('wild-window:compact', compact),
   }));
   window.addEventListener('click', event => {
     if (!event.isTrusted || event.defaultPrevented) return;

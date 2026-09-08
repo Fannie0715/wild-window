@@ -15,8 +15,8 @@ const windowFor = contents => [...windows].find(win => !win.isDestroyed() && win
 
 function createWindow({ mini = false, camera = 'panda' } = {}) {
   const win = new BrowserWindow({
-    title: 'Global Wildlife Monitor · 全球动物监控', width: mini ? 560 : 1180, height: mini ? 620 : 860,
-    minWidth: 520, minHeight: 430, backgroundColor: '#10150f', autoHideMenuBar: true,
+    title: 'Global Wildlife Monitor · 全球动物监控', width: mini ? 360 : 1180, height: mini ? 320 : 860,
+    minWidth: mini ? 280 : 520, minHeight: mini ? 300 : 430, backgroundColor: '#10150f', autoHideMenuBar: true,
     alwaysOnTop: mini,
     webPreferences: { preload: resolve(__dirname, 'preload.cjs'), sandbox: true, contextIsolation: true,
       nodeIntegration: false, nodeIntegrationInSubFrames: false, webSecurity: true, webviewTag: false,
@@ -66,6 +66,16 @@ async function start() {
     if (existing) existing.close();
     createWindow({mini:true,camera:id});
     return { opened: true };
+  });
+  ipcMain.handle('wild-window:compact', (event, compact) => {
+    const win = windowFor(event.sender);
+    assertSender(event, win, origin);
+    if (typeof compact !== 'boolean') throw new TypeError('小窗模式必须为布尔值。');
+    win.setMinimumSize(compact ? 280 : 520, compact ? 300 : 430);
+    win.setSize(compact ? 360 : 1180, compact ? 320 : 860);
+    win.setAlwaysOnTop(compact);
+    if (compact) miniWindows.add(win); else miniWindows.delete(win);
+    return { compact };
   });
   ipcMain.handle('wild-window:open-link', async (event, href) => {
     assertSender(event, windowFor(event.sender), origin);
