@@ -1,0 +1,62 @@
+{
+  "name": "wild-window",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "start": "node scripts/serve.mjs",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --test tests/*.test.mjs tests/*.test.cjs",
+    "pack:desktop": "node scripts/package-desktop.mjs",
+    "lint": "oxlint",
+    "format": "oxfmt",
+    "pack:game": "node scripts/package-game.mjs",
+    "setup:ai": "node scripts/setup-ai.mjs",
+    "desktop": "node scripts/launch-desktop.mjs"
+  },
+  "dependencies": {
+    "@base-ui/react": "1.7.0",
+    "@shadcn/react": "0.3.0",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "cmdk": "1.1.1",
+    "date-fns": "4.1.0",
+    "embla-carousel-react": "8.5.2",
+    "input-otp": "1.4.2",
+    "lucide-react": "1.31.0",
+    "react": "19.2.6",
+    "react-day-picker": "9.8.1",
+    "react-dom": "19.2.6",
+    "react-resizable-panels": "4.5.8",
+    "recharts": "3.8.0",
+    "shadcn": "4.18.0",
+    "tailwind-merge": "3.6.0",
+    "tw-animate-css": "1.4.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.2.1",
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.2",
+    "electron": "44.2.0",
+    "oxfmt": "0.61.0",
+    "oxlint": "1.76.0",
+    "oxlint-tsgolint": "7.0.2001",
+    "tailwindcss": "4.2.1",
+    "typescript": "5.9.3",
+    "vite": "8.2.2"
+  },
+  "type": "module",
+  "description": "A retro wildlife webcam window for a little wild break",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Fannie0715/wild-window.git"
+  },
+  "homepage": "https://github.com/Fannie0715/wild-window"
+}
