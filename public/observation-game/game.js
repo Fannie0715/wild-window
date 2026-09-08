@@ -79,7 +79,7 @@
     ui["feedback-title"].textContent = answer.correct ? "认出来了，是" + round.animal.name : "这位朋友是" + round.animal.name;
     ui["feedback-fact"].textContent = round.animal.fact;
     ui["feedback"].hidden = false;
-    ui["next-label"].textContent = state.index === state.rounds.length - 1 ? "查看值班记录" : "下一条线索";
+    ui["next-label"].textContent = state.index === state.rounds.length - 1 ? "查看观察记录" : "下一条线索";
     ui["next-button"].hidden = false;
     ui["choice-hint"].hidden = true;
     renderProgress();

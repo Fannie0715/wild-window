@@ -25,8 +25,8 @@ h2:focus { outline: none; }
 .eyebrow { display: flex; align-items: center; gap: 8px; color: var(--phosphor); font-size: 13px; letter-spacing: .12em; }
 .status-light { width: 6px; height: 6px; border-radius: 50%; background: var(--phosphor); box-shadow: 0 0 9px #dbe7a62e; }
 .title-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 13px; }
-h1 { font-size: 35px; font-weight: 650; letter-spacing: .055em; line-height: 1.24; }
-h1 span { display: block; margin-top: 5px; color: var(--phosphor); font-size: 19px; font-weight: 450; letter-spacing: .27em; }
+h1 { min-width: 0; font-size: clamp(24px, 5.5vw, 32px); font-weight: 650; letter-spacing: .015em; line-height: 1.24; overflow-wrap: anywhere; }
+h1 span { display: block; margin-top: 8px; color: var(--phosphor); font-size: clamp(13px, 3.4vw, 16px); font-weight: 450; letter-spacing: .06em; }
 .brand-mark { flex: 0 0 auto; opacity: .88; }
 .intro { margin-top: 18px; color: var(--muted); font-size: 16px; }
 .desk-stats { display: flex; justify-content: space-between; align-items: baseline; color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; }
@@ -102,13 +102,13 @@ h1 span { display: block; margin-top: 5px; color: var(--phosphor); font-size: 19
 @media (min-width: 640px) {
   .app-shell { padding-top: 40px; padding-right: 35px; padding-left: 35px; }
   .masthead { padding-bottom: 30px; }
-  h1 { font-size: 42px; }
+  h1 { font-size: 34px; }
   .viewfinder { min-height: 300px; padding: 21px 27px; }
   .clue-content { padding-top: 35px; }
 }
 @media (max-width: 350px) {
   .app-shell { padding-right: 17px; padding-left: 17px; }
-  h1 { font-size: 31px; }
+  h1 { font-size: 24px; }
   .viewfinder { padding-right: 16px; padding-left: 16px; }
   .viewfinder-top, .viewfinder-bottom { font-size: 11px; }
   .answer-heading > span, .review-header > span { font-size: 11px; }
